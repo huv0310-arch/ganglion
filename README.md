@@ -7,7 +7,7 @@
 > **一个会记账的判决件。** 判过的记在账上，保鲜期（默认 1 小时）内不再判第二次。
 > 105 行纯标准库，零依赖，`import` 即用。
 
-[![tests](https://img.shields.io/badge/tests-19%20passed-brightgreen)](#测试)
+[![tests](https://img.shields.io/badge/tests-22%20passed-brightgreen)](#测试)
 [![python](https://img.shields.io/badge/python-3.8+-blue)](#)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -93,7 +93,7 @@ probe.check(None)   # → (1, "DB: 通")
 python -m unittest discover -s tests -v
 ```
 
-19 条，零依赖。其中 `test_exception_not_written` 钉住 fail-open 不落账。
+22 条，零依赖。其中 `test_exception_not_written` 钉住 fail-open 不落账；`test_frozen_original.py` 钉住**原件没被改过**——校验 sha256、行数 105、以及骨里不出现任何业务词。
 
 ## 冻结
 
