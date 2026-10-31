@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "如果这 105 行对你的工作有用，请按下面的格式引用。"
+title: "Ganglion: a 105-line memory-backed verdict primitive"
+abstract: >-
+  A single-file, zero-dependency verdict primitive. One content in, three values out
+  (1 pass / 0 problem / None undecided); a verdict already made within its TTL is not
+  recomputed. Deliberately free of domain knowledge: it requires only a dict and a callable.
+type: software
+authors:
+  - family-names: "Hu"
+    given-names: "Duidui"
+    alias: "怼怼胡 (duiduihu)"
+version: "0.1.0"
+date-released: "2026-10-30"
+license: MIT
+repository-code: "https://github.com/huv0310-arch/ganglion"
+url: "https://github.com/huv0310-arch/ganglion"
+keywords:
+  - verdict
+  - decision cache
+  - memoization
+  - idempotence
+  - three-valued logic
