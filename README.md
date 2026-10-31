@@ -1,15 +1,14 @@
 # Ganglion · 神经节
 
-> **发布说明（2026-10-31）**：本仓库只放**定稿**。
-> 日常开发、试跑、未定稿的判决账本都在私有库，定稿后才出现在这里。
-> 当前公开的是 **V1 原件**：105 行，一字未改（tag `v0-original`，2026-10-30 13:36 首次提交）。
-
 > **一个会记账的判决件。** 判过的记在账上，保鲜期（默认 1 小时）内不再判第二次。
 > 105 行纯标准库，零依赖，`import` 即用。
 
+[![version](https://img.shields.io/badge/version-0.1.0-blue)](CHANGELOG.md)
 [![tests](https://img.shields.io/badge/tests-22%20passed-brightgreen)](#测试)
 [![python](https://img.shields.io/badge/python-3.8+-blue)](#)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+**版本 0.1.0** · 首次发布 2026-10-30 · 原件冻结于 2026-10-29（tag `v0-original`）· 变更记录见 [CHANGELOG](CHANGELOG.md) · 改动规则见 [CONTRIBUTING](CONTRIBUTING.md)
 
 ```
 verdict: 1 = 通过 · 0 = 有问题 · None = 未决
