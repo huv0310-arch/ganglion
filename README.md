@@ -3,12 +3,12 @@
 > **一个会记账的判决件。** 判过的记在账上，保鲜期（默认 1 小时）内不再判第二次。
 > 105 行纯标准库，零依赖，`import` 即用。
 
-[![version](https://img.shields.io/badge/version-0.1.0-blue)](CHANGELOG.md)
-[![tests](https://img.shields.io/badge/tests-22%20passed-brightgreen)](#测试)
+[![version](https://img.shields.io/badge/version-1.1-blue)](CHANGELOG.md)
+[![tests](https://img.shields.io/badge/tests-54%20passed-brightgreen)](#测试)
 [![python](https://img.shields.io/badge/python-3.8+-blue)](#)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**版本 0.1.0** · 首次发布 2026-10-30 · 原件冻结于 2026-10-29（tag `v0-original`）· 变更记录见 [CHANGELOG](CHANGELOG.md) · 改动规则见 [CONTRIBUTING](CONTRIBUTING.md)
+**版本 1.1** · 发布 2026-11-05 · V1.0 原件不动（tag `v0-original`），两版并存：同一骨架（一个 content 进、两个值出、None 往上交），V1.1 只是加固四条——并发写保护、吞错留痕、默认保鲜期 1800 秒、复用带年龄 · 变更记录见 [CHANGELOG](CHANGELOG.md) · 改动规则见 [CONTRIBUTING](CONTRIBUTING.md)
 
 ```
 verdict: 1 = 通过 · 0 = 有问题 · None = 未决
