@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""外部使用者（小派）第一轮实测抓到的三处，各钉一条测试。"""
+"""外部使用者（协作者 B）第一轮实测抓到的三处，各钉一条测试。"""
 from ganglion import _make_key
 from ledger import Ledger, addr
 
 
 def test_unresolved_means_outstanding_not_lifetime():
-    """小派报的：悬位明明是空的，stat['unresolved'] 还是 1。
+    """协作者 B报的：悬位明明是空的，stat['unresolved'] 还是 1。
 
     "现在悬着几笔"必须现数，存一个计数器迟早走样。
     """
@@ -19,7 +19,7 @@ def test_unresolved_means_outstanding_not_lifetime():
 
 
 def test_window_is_frozen_into_the_round_at_write_time():
-    """小派报的：Ledger(writer="t", ttl=60) 记的账，节上 ttl=None。
+    """协作者 B报的：Ledger(writer="t", ttl=60) 记的账，节上 ttl=None。
 
     账本级 ttl 一改，历史节的含意跟着变 —— 等于改了对过去的解释。
     """
@@ -31,7 +31,7 @@ def test_window_is_frozen_into_the_round_at_write_time():
 
 
 def test_addr_is_public_and_matches_internal():
-    """小派报的：外部想生成同款地址只能抄私货 _make_key。"""
+    """协作者 B报的：外部想生成同款地址只能抄私货 _make_key。"""
     assert addr("某台车合规") == _make_key("某台车合规")
     assert addr("同一件事") == addr("同一件事")
     assert addr("甲") != addr("乙")

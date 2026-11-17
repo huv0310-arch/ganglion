@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""小派评审（2026-10-31）挖出的三个坑，逐条钉住。
+"""协作者 B评审（2026-10-31）挖出的三个坑，逐条钉住。
 
 ① compact 的改名窗口会静默丢账
 ② _replay_node 的幂等判据只有 (ts, verdict)，两头都错 → 伪造翻面
@@ -177,7 +177,7 @@ def test_consumed_backup_is_not_replayed_twice(tmp_path):
     assert len(final.nodes[addr("只该有一节")]) == 1, "压实备份被重复吃进去"
 
 
-# ── ④ 借票不许悄悄不落账（小派第二轮评审，2026-10-31） ────────────────
+# ── ④ 借票不许悄悄不落账（协作者 B第二轮评审，2026-10-31） ────────────────
 
 def test_probe_requires_journal(tmp_path):
     """不传 journal 借不出来 —— 借票必须落账，没有默认值。"""
@@ -225,7 +225,7 @@ def test_journal_false_means_no_log(tmp_path):
 
 
 def test_ganglion_check_logs_its_borrow(tmp_path):
-    """骨+账的入口也会借 —— 它借的那张票必须进流水（小派：钥匙要插门上）。"""
+    """骨+账的入口也会借 —— 它借的那张票必须进流水（协作者 B：钥匙要插门上）。"""
     from ledger import LedgerGanglion
     p = str(tmp_path / "book.json")
     jp = p + ".jsonl"
@@ -314,7 +314,7 @@ def test_save_beside_a_reader_does_not_crash(tmp_path):
     assert len(Ledger.load(p, writer="t", ttl=3600).nodes) >= 30
 
 
-# ── ⑥ 小派第三轮：让路说清楚 / 收口落账 / 活锁不许抢 ──────────────────
+# ── ⑥ 协作者 B第三轮：让路说清楚 / 收口落账 / 活锁不许抢 ──────────────────
 
 def test_resolve_requires_journal(tmp_path):
     p = str(tmp_path / "book.json")
@@ -417,7 +417,7 @@ def test_compaction_never_hides_a_tail(tmp_path):
     missing = [i for i in range(N) if addr(f"边写边压{i}") not in back.nodes]
     assert not missing, f"压实把尾巴藏掉了：缺 {len(missing)} 节（如 {missing[:3]}）"
 
-# ── ⑨ 外部实测（阿爪 2026-10-31）：参数错位不许静默写脏账 ───────────────
+# ── ⑨ 外部实测（协作者 C 2026-10-31）：参数错位不许静默写脏账 ───────────────
 
 def test_append_refuses_swapped_args(tmp_path, monkeypatch):
     """少写一位路径时，地址会被当文件名 —— 以前写出一条 key=null 的假账还不报错。"""
@@ -464,7 +464,7 @@ def test_stale_offset_after_rotation_does_not_skip(tmp_path):
 
 
 
-# ── ⑦ 小派第四轮：对齐=覆盖会抹掉还没落盘的账 ───────────────────────
+# ── ⑦ 协作者 B第四轮：对齐=覆盖会抹掉还没落盘的账 ───────────────────────
 
 def test_compact_keeps_unsaved_in_memory_nodes(tmp_path):
     """我手上还没 save 的一节，压实不许当脏数据扔掉。"""
