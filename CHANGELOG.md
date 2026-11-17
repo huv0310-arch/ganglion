@@ -4,6 +4,20 @@
 
 本文件只记录**公开发布的版本**。日常开发、试跑、未定稿内容不进本库，因此不出现在这里。
 
+## [2.1] — 2026-11-17
+
+读账口 `audit()`。起因是一条外部 issue：borrow 的 hit 行写进流水后，拿快照对流水的读者看见「流水 +1 行、链 0 行」，把**未重演**误报成了**断链**。本地三行复现确认：账没丢（带 journal 重演后 hits/borrows 都在），红的是读法。修的不是写侧——是补一个把三笔账分开报的口子。
+
+### 新增
+- `Ledger.audit(path, journal=)` —— 只读诊断：`journal_bytes / consumed_bytes / unabsorbed_bytes / backup_bytes / rows_on_chain / bad_lines / aligned` 全整数读数，不写行、不推进消费位。判读顺序与压实换代语义见 docs/LEDGER.md §13.6¾。
+- README「读账先 audit()，再喊"链断了"」小节 + LEDGER.md §13.6¾：把「未重演 ≠ 断链 ≠ 坏行」写成口径。
+- `tests/test_audit.py` 5 条：issue 现场（未重演点名）、重演后对齐、audit 严格只读、压实截空语义、坏行独立成轴。
+
+### 状态
+公开仓 tag `v2.1`。原件 `ganglion.py` 依旧一字未动。
+
+---
+
 ## [1.1] — 2026-11-05
 
 标准件接缝加固。原件 `ganglion.py` 一字未动，与新版并存。
