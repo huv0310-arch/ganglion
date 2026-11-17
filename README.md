@@ -259,7 +259,7 @@ python -m unittest discover -s tests -v
 
 V1 冻结那 19 条（`tests/test_ganglion.py`）零依赖，其中 `test_exception_not_written` 钉住 fail-open 不落账；`tests/test_frozen_original.py` 再钉住**原件没被改过**——校验 sha256、行数 105、以及骨里不出现任何业务词。全库总数见下一行。
 
-公开面（V1/V1.1/账本核心/audit）用 `unittest discover` 收是 **54 条**、用 pytest 收是 **69 条**（2.1 加 `test_audit.py` 5 条；开发全库口径另计，见 lab 仓）（round 57 加了崩溃注入 8 条、round 58 加了 IO 错误注入 5 条、round 59 加了长跑稳态 2 条、round 60 加了损坏与恶意输入 9 条、round 61 加了文件损坏 fuzz 19 条、收编公开仓 v1.1 线加了冻结原件与 v1.1 共 3 条；参数化会把一组用例展开成多条；两个数都是实测的，不是估的）。
+公开面全套（V1/V1.1/账本核心/audit/压测与 fuzz——fuzz 等 15 个文件只写 pytest 风格，`unittest discover` 收它们会撞 loader，属预期）用 pytest 收是 **226 条**（v2.1 补齐：此前 README 引用的一串 `tests/test_*.py` 钉子没拷进公开面，文档指向不存在的文件——本轮全数落位并实测）（round 57 加了崩溃注入 8 条、round 58 加了 IO 错误注入 5 条、round 59 加了长跑稳态 2 条、round 60 加了损坏与恶意输入 9 条、round 61 加了文件损坏 fuzz 19 条、收编公开仓 v1.1 线加了冻结原件与 v1.1 共 3 条；参数化会把一组用例展开成多条；两个数都是实测的，不是估的）。
 
 ### 真并行：6 进程 × 80 步（round 56 量，**抓到 4 处根因**）
 
